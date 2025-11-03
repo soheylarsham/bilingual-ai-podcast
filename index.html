@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilingual AI Podcast Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap');
+      body {
+        font-family: 'Nunito', sans-serif;
+        background: #0f0c29;
+        background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        background-size: 200% 200%;
+        color: #e0e0e0;
+        animation: gradient-animation 15s ease infinite;
+      }
+      .font-fa {
+        font-family: 'Vazirmatn', sans-serif;
+      }
+      .glass-morphism {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .neon-glow-cyan {
+        box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+      }
+      .neon-glow-magenta {
+        box-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 15px #f0f;
+      }
+      .neon-text-cyan {
+        text-shadow: 0 0 3px #0ff, 0 0 5px #0ff;
+      }
+      .neon-text-magenta {
+        text-shadow: 0 0 3px #f0f, 0 0 5px #f0f;
+      }
+
+      /* Animations */
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes neon-pulse {
+        0%, 100% {
+          box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #f0f, 0 0 30px #f0f, 0 0 40px #f0f;
+        }
+        50% {
+          box-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 30px #f0f, 0 0 40px #0ff, 0 0 50px #0ff, 0 0 60px #0ff;
+        }
+      }
+      @keyframes enter-from-bottom {
+        from {
+          opacity: 0;
+          transform: translateY(50px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .animate-enter {
+        animation: enter-from-bottom 0.7s ease-out forwards;
+      }
+      .animate-spin-slow {
+        animation: spin 5s linear infinite;
+      }
+      .animation-delay-[-2s] {
+        animation-delay: -2s;
+      }
+      
+      /* Custom form controls */
+      .segmented-control {
+        display: flex;
+        border-radius: 9999px;
+        padding: 4px;
+        background-color: rgba(0,0,0,0.2);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .segmented-control button {
+        flex: 1;
+        padding: 6px 12px;
+        border-radius: 9999px;
+        background: none;
+        border: none;
+        color: #a0a0a0;
+        cursor: pointer;
+        transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        z-index: 1;
+        white-space: nowrap;
+      }
+      .segmented-control button.active {
+        color: white;
+        background-color: #10b981; /* Emerald green for active state */
+        box-shadow: 0 0 8px #10b981, 0 0 12px #10b981;
+      }
+
+      .toggle-switch {
+        width: 50px;
+        height: 28px;
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 9999px;
+        padding: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .toggle-switch-dot {
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: transform 0.3s ease-in-out;
+      }
+      .toggle-switch.on {
+         background-color: #0ff;
+      }
+      .toggle-switch.on .toggle-switch-dot {
+        transform: translateX(22px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.552.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "./utils/file": "./utils/file.ts",
+    "./utils/connections": "./utils/connections.ts",
+    "/connections/telegram.js": "./connections/telegram.js",
+    "/connections/discord.js": "./connections/discord.js",
+    "/connections/twitter.js": "./connections/twitter.js",
+    "/connections/wordpress.js": "./connections/wordpress.js",
+    "/connections/webhook.js": "./connections/webhook.js"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  </body>
+</html>
